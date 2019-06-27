@@ -6,7 +6,8 @@
 
     const tickDuration = 10
     const earthGravityAcceleration = -9.81
-
+    const initialVelocity = 50
+    
     let position = 0
     let velocity = 0
 
@@ -33,11 +34,11 @@
     function move (){
         const time = tickDuration / 1000
 
-        const NewPosition = position + velocity * time + (earthGravityAcceleration * time * time) / 2
-        const NewVelocity = velocity + earthGravityAcceleration * time 
+        const newPosition = position + velocity * time + (earthGravityAcceleration * time * time) / 2
+        const newVelocity = velocity + earthGravityAcceleration * time 
 
-        position = Math.max(0,NewPosition)
-        velocity = position === 0 ? 0 : NewVelocity
+        position = Math.max(0,newPosition)
+        velocity = position === 0 ? 0 : newVelocity
         
         alienElement.style.bottom = position + 'px'
     }
